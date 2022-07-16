@@ -5,12 +5,19 @@ using UnityEngine;
 public class PlayerInputToFlatRBMovement : MonoBehaviour
 {
     public FlatRBMovement flatRBMovement;
+    public AttackComponent attackComponent;
     private Camera _mainCamera;
 
 
     void Start()
     {
         _mainCamera = Camera.main;
+    }
+
+    void Update()
+    {
+        attackComponent.triggerAttack = Input.GetButtonDown("Fire1");
+        attackComponent.triggerChargedAttack = Input.GetButtonDown("Fire2");
     }
 
     void FixedUpdate()
@@ -27,8 +34,15 @@ public class PlayerInputToFlatRBMovement : MonoBehaviour
         flatCameraRight.y = 0.0f;
         flatCameraRight.Normalize();
 
-        Vector2 controllerInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        controllerInput = Vector2.ClampMagnitude(controllerInput, 1.0f);
+        Vector2 controllerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (controllerInput.sqrMagnitude < 0.5f * 0.5f)
+        {
+            controllerInput = Vector2.zero;
+        }
+        else
+        {
+            controllerInput.Normalize();
+        }
 
         Vector3 movement = flatCameraForward * controllerInput.y + flatCameraRight * controllerInput.x;
 
