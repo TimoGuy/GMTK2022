@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInputToFlatRBMovement : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
     public FlatRBMovement flatRBMovement;
     public AttackComponent attackComponent;
@@ -49,7 +49,6 @@ public class PlayerInputToFlatRBMovement : MonoBehaviour
         //
         // Insert values into the flatRBMovement
         //
-        flatRBMovement.movementMagnitude = movement.magnitude;
-        flatRBMovement.movementDirection = movement.normalized;
+        flatRBMovement.SendMovement(movement.normalized, movement.magnitude);
     }
 }
