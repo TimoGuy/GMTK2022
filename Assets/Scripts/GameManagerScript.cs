@@ -53,14 +53,6 @@ public class GameManagerScript : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Pause"))
-        {
-            Application.Quit();
-        }
-    }
-
     #if UNITY_EDITOR
     void OnApplicationQuit()
     {
