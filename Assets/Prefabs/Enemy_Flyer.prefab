@@ -472,7 +472,7 @@ MonoBehaviour:
   maxHealth: 15
   health: 15
   waitAfterLimpSeconds: 1
-  xpOnDefeat: 10
+  xpOnDefeat: 15
   receiveAttackHitbox: {fileID: 3316152830310475802}
   uiHealthText: {fileID: 4331173545743022049}
   uiHealthBarBg: {fileID: 5756944251416838086}

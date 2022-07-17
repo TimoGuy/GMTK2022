@@ -42,6 +42,9 @@ public class GameManagerScript : MonoBehaviour
     public GameObject[] spawnDices;
     public float chanceToSpawnDices = 0.25f;
 
+    [Header("Player Ref")]
+    public EntityHealthTracker playerStats;
+
 
     void Start()
     {
@@ -190,7 +193,8 @@ public class GameManagerScript : MonoBehaviour
             //
             // Level up those stats!
             //
-
+            playerStats.maxHealth = 100 + 10 * (currentLevel - 1);
+            playerStats.ReplenishHealthRelative(playerStats.maxHealth);
         }
 
         uiXpShower.text = $"XP: {xp} / {xpForNextLevel}\nLevel {currentLevel}";

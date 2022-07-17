@@ -8247,6 +8247,7 @@ MonoBehaviour:
   - {fileID: 4620114869100292223, guid: ae9f5f4eb81e6164eaf2f3a4f4e2dbfa, type: 3}
   - {fileID: 5852903832009931587, guid: 389bd7ed37c725440b4d1e1e10996077, type: 3}
   chanceToSpawnDices: 100
+  playerStats: {fileID: 902436236}
 --- !u!1 &267009883
 GameObject:
   m_ObjectHideFlags: 0
