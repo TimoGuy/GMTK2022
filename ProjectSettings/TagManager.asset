@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GoodGuyHitbox
   - BadGuyHitbox
+  - GameManager
+  - CollisionGround
   layers:
   - Default
   - TransparentFX

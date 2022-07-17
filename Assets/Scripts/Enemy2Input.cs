@@ -31,6 +31,8 @@ public class Enemy2Input : MonoBehaviour
     void Start()
     {
         _modelRefRenderers = modelRef.GetComponentsInChildren<Renderer>();
+        if (playerTransform == null)
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
 

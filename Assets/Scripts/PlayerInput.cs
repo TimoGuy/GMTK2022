@@ -6,12 +6,18 @@ public class PlayerInput : MonoBehaviour
 {
     public FlatRBMovement flatRBMovement;
     public AttackComponent attackComponent;
+    public GameManagerScript gameManagerScript;
     private Camera _mainCamera;
 
 
     void Start()
     {
         _mainCamera = Camera.main;
+    }
+
+    void OnDestroy()
+    {
+        gameManagerScript.ReportPlayerDied();
     }
 
     void Update()

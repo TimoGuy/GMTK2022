@@ -8,6 +8,7 @@ public class ReceiveAttackHitbox : MonoBehaviour
     public string allowedTag = "<TAG>";
     public UnityEvent onHitboxDetect;
     public Vector3 _previousHitPosition;
+    public float _previousHitMultiplier;
     public float debounce = 0.25f;
     private float _debounceTimer = 0.0f;
 
@@ -29,6 +30,7 @@ public class ReceiveAttackHitbox : MonoBehaviour
         _debounceTimer = debounce;
         collider.gameObject.SendMessageUpwards("OnAttackSuccess");
 
+        _previousHitMultiplier = collider.GetComponent<HitboxData>().hitMultiplier;
         _previousHitPosition = collider.transform.position;
         onHitboxDetect.Invoke();
     }
